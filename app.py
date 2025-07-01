@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -35,7 +34,7 @@ if st.button("Predict Cost"):
 
     try:
         model = joblib.load("model_pipeline.pkl")
-        prediction = model.predict(input_df)[0]
-        st.success(f"Predicted Freight Cost: ${prediction:.2f}")
+        prediction = model.predict(input_df)[0] * 1.08
+        st.success(f"Predicted Freight Cost: ${prediction:.2f}") 
     except Exception as e:
         st.error(f"Failed to load model: {e}")
